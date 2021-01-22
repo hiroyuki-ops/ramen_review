@@ -23,3 +23,7 @@ body {
 	background-image: linear-gradient(to right #6a11cd 0%, #2575fc 100%);
 	font-family: sans-serif;
 }
+
+.notification:not(:last-child){
+	margin-bottom: 0;
+}
