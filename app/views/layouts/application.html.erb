@@ -21,6 +21,48 @@
         <p class="alert"><%= alert %></p>
       </div>
     <% end %>
+    <nav class="navbar" role="navigation" area-rabel="main navigation">
+      <div class="navbar-brand">
+        <p class="navbar-item">
+          <%= link_to root_path do %>
+            <strong class="is-size-3" style="font-family: cursive; color: black;">ramen_review</strong>
+          <% end %>
+        </p>
+        <a role="button" class="navber-burger burger" area-rabel="menu" area-expand="">
+          <span area-hidden="true"></span>
+          <span area-hidden="true"></span>
+          <span area-hidden="true"></span>
+        </a>
+      </div>
+      <div id="navberBasicExample" class="navber-menu">
+        <div class="navber-start">
+          <%= link_to root_path, class: "navber-item" do %>
+          ラーメン店一覧
+          <% end %>
+        </div>
+        <div class="navber-end">
+          <div class="navber-item">
+            <%= if user_signed_in? %>
+              <p class="navber-item">ようこそ <%= current_user.username %> さん</p>
+            <% end %>
+            <div class="buttons">
+              <% if user_signed_in? %>
+                <%= link_to destroy_user_session_path, method: :delete do %>
+                  ログアウト
+                <% end %>
+              <% else %>
+                <%= link_to new_user_session_path, class: "button" do %>
+                  ログイン
+                <% end %>
+                <%= link_to new_user_registration_path, class: "button" do %>
+                  新規登録
+                <% end %>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
     <%= yield %>
   </body>
 </html>
