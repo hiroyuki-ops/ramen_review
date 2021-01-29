@@ -1,5 +1,8 @@
 class ReviewsController < ApplicationController
-  def index
+	before_action :authenticate_user!, only: [:create]
+  def indexf
+  	@ramen_shop = RamenShop.find(params[:ramen_shop_id])
+  	@reviews = @ramen_shop.reviews
   end
 
   def create
